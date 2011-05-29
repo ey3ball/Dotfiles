@@ -1,0 +1,37 @@
+#!/bin/bash
+# Fancy bash prompt
+
+############################################################
+# PROMPT
+############################################################
+
+function prompt_command {
+	LASTERR="$?"
+
+	# Time
+	PS1="\[$BCYAN\]\t"
+
+	# User, Blue if root
+	if [ "$(whoami)" == "root" ]; then
+		PS1="$PS1 \[$BBLUE\]\u"
+	else
+		PS1="$PS1 \[$BRED\]\u"
+	fi
+
+	# host + path
+	PS1="${PS1}\[$BYELLOW\]@\[$BWHITE\]\h \[$BGREEN\]\w"
+
+	# error code
+	if [ $LASTERR = 0 ]; then 
+		PS1="${PS1} \[$BGREEN\]:)"
+	else 
+		PS1="${PS1} \[$BRED\]:(" 
+	fi
+
+	PS1="$PS1\[$BWHITE\]$P_GIT_BRANCH"
+
+	PS1="$PS1 \[$BBLUE\]$\[$NOCOL\] "
+}
+
+export PROMPT_COMMAND="prompt_command"
+

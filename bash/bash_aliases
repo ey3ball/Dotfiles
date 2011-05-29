@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias ls="ls --color=auto"
+alias less="less -R"
+alias grep="grep --color=auto"

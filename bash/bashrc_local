@@ -1,0 +1,47 @@
+##! /bin/bash
+
+export SHELL=/bin/bash
+
+[ -r /etc/bash_completion   ] && . /etc/bash_completion
+[ -r /etc/bash_aliases   ] && . /etc/bash_aliases
+[ -r /etc/bash_colors   ] && . /etc/bash_colors
+[ -r /etc/bash_prompt   ] && . /etc/bash_prompt
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+# export HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -q -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Why do we set HISTFILE ?
+
+# If we don't set HISTFILE, any time a shell is started that does not
+# read this file (su, sudo, special runlevel, etc...) it will truncate
+# the history to the default of 500 lines.
+export HISTFILE=~/.bash_history_long
+export HISTFILESIZE=4000000
+export HISTSIZE=4000000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -q -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+############################################################
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+export TERM="rxvt"
