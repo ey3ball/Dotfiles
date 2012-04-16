@@ -1,0 +1,9 @@
+#!/bin/bash
+
+[ -r /etc/bash_completion   ] && . /etc/bash_completion
+[ -r /etc/bash_aliases   ] && . /etc/bash_aliases
+[ -r /etc/bash_colors   ] && . /etc/bash_colors
+[ -r /etc/bash_prompt   ] && . /etc/bash_prompt
+
+export EDITOR="vim"
+export MAIL="~/Maildir"

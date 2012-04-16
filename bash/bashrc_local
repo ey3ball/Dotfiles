@@ -1,11 +1,12 @@
-##! /bin/bash
+#! /bin/bash
+# __EY3BALL_DOTFILES__
 
 export SHELL=/bin/bash
 
-[ -r /etc/bash_completion   ] && . /etc/bash_completion
-[ -r /etc/bash_aliases   ] && . /etc/bash_aliases
-[ -r /etc/bash_colors   ] && . /etc/bash_colors
-[ -r /etc/bash_prompt   ] && . /etc/bash_prompt
+[ -r ~/.bash_completion ]	&& . ~/.bash_completion
+[ -r ~/.bash_aliases ]		&& . ~/.bash_aliases
+[ -r ~/.bash_colors ]		&& . ~/.bash_colors
+[ -r ~/.bash_prompt ]		&& . ~/.bash_prompt
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -35,13 +36,9 @@ shopt -q -s checkwinsize
 
 ############################################################
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+export EDITOR="vim"
+export TERM="xterm-color"
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+############################################################
 
-export TERM="rxvt"
+[ -r ~/.bashrc_local ]		&& . ~/.bashrc_local
