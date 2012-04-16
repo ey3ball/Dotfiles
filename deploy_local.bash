@@ -16,13 +16,13 @@ fi
 echo "> Deploying system wide dotfiles from ${DOTPATH}"
 
 # Replace original bashrc with distributed one
-if [ -f "~/.bashrc" ]; then
+if [ -f ~/.bashrc ]; then
 	if [ $(grep -c "__EY3BALL_DOTFILES__" ~/.bashrc || :) -eq 0 ]; then
 		mv ~/.bashrc ~/.bashrc_local
 	fi
 fi
 
-if [ ! -f "~/.bashrc" ]; then
+if [ ! -f ~/.bashrc ]; then
 	deploy_link bash/bashrc_local	~/.bashrc
 fi
 
