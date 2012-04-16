@@ -9,7 +9,7 @@ DOTPATH=$(cd $(dirname ${0}) && pwd)
 . ${DOTPATH}/common.bash
 
 if [[ ! "$@" =~ "-global" ]] && [[ ! "$@" =~ "-local" ]]; then
-	echo "Please choose between bare local deployment (-local) or local deployment after global install (-global)\n"
+	echo "Please choose between bare local deployment (-local) or local deployment after global install (-global)"
 	exit 1
 fi
 
@@ -18,7 +18,7 @@ echo "> Deploying system wide dotfiles from ${DOTPATH}"
 # Replace original bashrc with distributed one
 if [ -f "~/.bashrc" ]; then
 	if [ $(grep -c "__EY3BALL_DOTFILES__" ~/.bashrc || :) -eq 0 ]; then
-		mv .bashrc .bashrc_local
+		mv ~/.bashrc ~/.bashrc_local
 	fi
 fi
 
