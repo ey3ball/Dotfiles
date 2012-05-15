@@ -3,3 +3,4 @@
 alias ls="ls --color=auto"
 alias less="less -R"
 alias grep="grep --color=auto"
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
