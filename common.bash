@@ -19,6 +19,10 @@ function deploy_link {
 		rm -f "${2}"
 	fi
 
+        if [ ! -d $(dirname $2) ]; then
+                mkdir -p $(dirname $2)
+        fi
+
 	ln -s ${DOTPATH}/${1} ${2}
 }
 
