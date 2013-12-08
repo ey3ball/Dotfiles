@@ -1,0 +1,3 @@
+[submodule "3rdparty/zenburn"]
+	path = 3rdparty/zenburn
+	url = https://github.com/ey3ball/Zenburn.git
