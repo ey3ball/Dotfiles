@@ -4,16 +4,16 @@
 set -e
 
 # Origin path
-DOTPATH=$(cd $(dirname ${0}) && pwd)
+DOTPATH=$(cd $(dirname $0) && pwd)
 
-. ${DOTPATH}/common.bash
+. $DOTPATH/common.bash
 
 if [[ ! "$@" =~ "-global" ]] && [[ ! "$@" =~ "-local" ]]; then
 	echo "Please choose between bare local deployment (-local) or local deployment after global install (-global)"
 	exit 1
 fi
 
-echo "> Deploying system wide dotfiles from ${DOTPATH}"
+echo "> Deploying system wide dotfiles from $DOTPATH"
 
 # Replace original bashrc with distributed one
 if [ -f ~/.bashrc ]; then
