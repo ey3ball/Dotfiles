@@ -28,10 +28,10 @@ if has("syntax")
   syntax on             " Default to no syntax highlightning
 endif
 
-colorscheme ron
-
 set term=xterm-256color
 set t_Co=256
+
+colorscheme zenburn
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
@@ -68,8 +68,8 @@ set wildmode=longest,list,full
 
 filetype indent on
 
-set shiftwidth=2
-"set expandtab
+set shiftwidth=8
+set expandtab
 
 """""""""""""""""""""""""""""""""""""""""
 " Some personnal options
