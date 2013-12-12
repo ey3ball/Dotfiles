@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xset +fp /usr/share/fonts/local
+xrdb -merge .Xresources
+asoundconf set-default-card PCH
+setxkbmap fr
+
+nm-applet &
+exec awesome
