@@ -35,3 +35,4 @@ fi
 
 deploy_link vim/vimrc ~/.vimrc
 deploy_link 3rdparty/zenburn/colors/zenburn.vim ~/.vim/colors/zenburn.vim
+deploy_link 3rdparty/awesome-copycats ~/.config/awesome
