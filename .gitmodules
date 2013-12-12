@@ -1,3 +1,6 @@
 [submodule "3rdparty/zenburn"]
 	path = 3rdparty/zenburn
 	url = https://github.com/ey3ball/Zenburn.git
+[submodule "3rdparty/awesome-copycats"]
+	path = 3rdparty/awesome-copycats
+	url = https://github.com/ey3ball/awesome-copycats
