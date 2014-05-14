@@ -28,9 +28,8 @@ if has("syntax")
   syntax on             " Default to no syntax highlightning
 endif
 
-set term=xterm-256color
 set t_Co=256
-
+set background=dark
 colorscheme zenburn
 
 " Suffixes that get lower priority when doing tab completion for filenames.
@@ -44,11 +43,6 @@ set runtimepath+=~/.vim/after
 """""""""""""""""""""""""""""""""""""""""
 " Options depending of user setup
 """""""""""""""""""""""""""""""""""""""""
-
-" If using a dark background within the editing area and syntax highlighting
-" set background=dark
-
-" Uncomment this to use the mouse in an xterm
 
 " comment this if you want vim to save backup file
 set nobackup            " Don't keep a backup file
