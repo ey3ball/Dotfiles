@@ -37,7 +37,7 @@ shopt -q -s checkwinsize
 ############################################################
 
 export EDITOR="vim"
-export TERM="xterm-color"
+[ -z "$TMUX" ] && export TERM="xterm-256color" || export TERM="screen-256color"
 
 ############################################################
 
