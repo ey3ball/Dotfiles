@@ -1,78 +1,58 @@
-
-"""""""""""""""""""""""""""""""""""""""""
-" Usefull options for everybody
-"""""""""""""""""""""""""""""""""""""""""
-
-
-" Normally we use vim-extensions. If you want true vi-compatibility
-" remove change the following statements
 set nocompatible        " Use Vim defaults (much better!)
 set backspace=2         " allow backspacing over everything in insert mode
 
-" Now we set some defaults for the editor
-set autoindent          " always set autoindenting on
+set autoindent
 set viminfo='20,\"50    " read/write a .viminfo file, don't store more than
                         " 50 lines of registers
 set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
 
 set showcmd             " Show (partial) command in status line.
-set showmatch           " Show matching brackets.
-set incsearch           " Incremental search
-set exrc
-set secure
-set clipboard=
-
-
-if has("syntax")
-  syntax on             " Default to no syntax highlightning
-endif
-
-set t_Co=256
-set background=dark
-colorscheme zenburn
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.d
 
-set runtimepath+=/utils/unix_share/vim
-set runtimepath-=~/.vim/after
-set runtimepath+=~/.vim/after
-
-"""""""""""""""""""""""""""""""""""""""""
-" Options depending of user setup
-"""""""""""""""""""""""""""""""""""""""""
-
-" comment this if you want vim to save backup file
 set nobackup            " Don't keep a backup file
-
-"set ignorecase          " Do case insensitive matching
-"set autowrite           " Automatically save before commands like :next and :make
-
-set textwidth=0         " Don't wrap words by default
-
-set hlsearch
-
-set wildmode=longest,list,full
-
-"""""""""""""""""""""""""""""""""""""""""
-" Indentation stuff
-"""""""""""""""""""""""""""""""""""""""""
-
-filetype indent on
-
-set shiftwidth=8
-set expandtab
-
-"""""""""""""""""""""""""""""""""""""""""
-" Some personnal options
-"""""""""""""""""""""""""""""""""""""""""
+set ignorecase          " Do case insensitive matching
+set textwidth=80
 
 set whichwrap=<,>,[,]
-set nostartofline
-set nofoldenable 
-set nu
-set tags=tags
+"set nostartofline
+set number		" show line numbers
+set ruler		" line / cursor position
+
+set showmatch           " Show matching brackets.
+set incsearch           " Incremental search
+set hlsearch		" Highligh search results
+set autoindent
+
+"set clipboard=
+
+" colors and syntax
+
+if has("syntax")
+  syntax on
+endif
+
+set t_Co=256
+set background=dark
+colorscheme ron
+
+filetype on
+filetype plugin on
+filetype indent on
 
 let c_space_errors = 1
+
+autocmd FileType Makefile set noexpandtab 
+autocmd FileType c set noexpandtab tabstop=8
+autocmd FileType python set expandtab
+autocmd BufRead,BufNewFile *.sls set expandtab tabstop=2
+
+set shiftwidth=8
+set noexpandtab
+
+if filereadable(expand("$HOME/.vim/plugins/cscope.vim"))
+	source $HOME/.vim/plugins/cscope.vim
+endif
