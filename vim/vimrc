@@ -26,6 +26,13 @@ set incsearch           " Incremental search
 set hlsearch		" Highligh search results
 set autoindent
 
+" always show statusbar
+set laststatus=2
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 "set clipboard=
 
 " colors and syntax
