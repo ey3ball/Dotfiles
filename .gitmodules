@@ -4,3 +4,6 @@
 [submodule "3rdparty/awesome-copycats"]
 	path = 3rdparty/awesome-copycats
 	url = https://github.com/ey3ball/awesome-copycats
+[submodule "3rdparty/tamzen-font"]
+	path = 3rdparty/tamzen-font
+	url = https://github.com/sunaku/tamzen-font.git
