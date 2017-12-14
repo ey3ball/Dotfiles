@@ -38,8 +38,6 @@ deploy_link 3rdparty/zenburn/colors/zenburn.vim ~/.vim/colors/zenburn.vim
 deploy_link 3rdparty/awesome-copycats ~/.config/awesome
 deploy_link 3rdparty/tamzen-font ~/.fonts/tamzen-font
 deploy_link env/tmux.conf ~/.tmux.conf
-deploy_link 3rdparty/osc-xterm-clipboard ~/.urxvt/ext/osc-xterm-clipboard
-
 
 xset +fp ~/.fonts/tamzen-font/bdf
 xset fp rehash
