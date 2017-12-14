@@ -1,9 +1,9 @@
 [submodule "3rdparty/zenburn"]
 	path = 3rdparty/zenburn
-	url = https://github.com/ey3ball/Zenburn.git
+	url = git@github.com:ey3ball/Zenburn.git
 [submodule "3rdparty/awesome-copycats"]
 	path = 3rdparty/awesome-copycats
-	url = https://github.com/ey3ball/awesome-copycats
+	url = git@github.com:ey3ball/awesome-copycats.git
 [submodule "3rdparty/tamzen-font"]
 	path = 3rdparty/tamzen-font
 	url = https://github.com/sunaku/tamzen-font.git
