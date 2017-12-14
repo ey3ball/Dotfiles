@@ -45,7 +45,7 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme ron
+colorscheme solarized
 
 filetype on
 filetype plugin on
