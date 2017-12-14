@@ -7,3 +7,6 @@
 [submodule "3rdparty/tamzen-font"]
 	path = 3rdparty/tamzen-font
 	url = https://github.com/sunaku/tamzen-font.git
+[submodule "3rdparty/suckless-st"]
+	path = 3rdparty/suckless-st
+	url = git@github.com:ey3ball/suckless-st.git
