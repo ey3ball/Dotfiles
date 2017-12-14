@@ -10,3 +10,9 @@
 [submodule "3rdparty/suckless-st"]
 	path = 3rdparty/suckless-st
 	url = git@github.com:ey3ball/suckless-st.git
+[submodule "3rdparty/solarized"]
+	path = 3rdparty/solarized
+	url = https://github.com/altercation/solarized
+[submodule "3rdparty/vim-colors-solarized"]
+	path = 3rdparty/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
