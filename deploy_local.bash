@@ -39,6 +39,7 @@ deploy_link 3rdparty/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/sol
 deploy_link 3rdparty/awesome-copycats ~/.config/awesome
 deploy_link 3rdparty/tamzen-font ~/.fonts/tamzen-font
 deploy_link env/tmux.conf ~/.tmux.conf
+deploy_link 3rdparty/awesome-copycats/rc.lua.template ~/.config/awesome/rc.lua
 
 xset +fp ~/.fonts/tamzen-font/bdf
 xset fp rehash
