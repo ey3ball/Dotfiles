@@ -16,3 +16,6 @@
 [submodule "3rdparty/vim-colors-solarized"]
 	path = 3rdparty/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "3rdparty/vim-ledger"]
+	path = 3rdparty/vim-ledger
+	url = https://github.com/ledger/vim-ledger
