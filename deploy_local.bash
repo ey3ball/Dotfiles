@@ -34,6 +34,7 @@ if [[ "$@" =~ "-local" ]]; then
 fi
 
 deploy_link vim/vimrc ~/.vimrc
+deploy_link nvim/init.vim ~/.config/nvim/init.vim
 deploy_link 3rdparty/zenburn/colors/zenburn.vim ~/.vim/colors/zenburn.vim
 deploy_link 3rdparty/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
 deploy_link 3rdparty/awesome-copycats ~/.config/awesome
