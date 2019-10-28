@@ -33,6 +33,8 @@ if [[ "$@" =~ "-local" ]]; then
 	deploy_link bash/bash_prompt	~/.bash_prompt
 fi
 
+deploy_link bash/bash_shell_utils   ~/.bash_shell_utils
+
 deploy_link vim/vimrc ~/.vimrc
 deploy_link nvim/init.vim ~/.config/nvim/init.vim
 deploy_link 3rdparty/zenburn/colors/zenburn.vim ~/.vim/colors/zenburn.vim

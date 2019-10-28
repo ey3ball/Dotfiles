@@ -1,0 +1,27 @@
+#!/bin/bash
+
+findrepo() {
+    (
+    while [ ! -d "$PWD/.repo" ]; do
+        cd ..
+        [ $PWD == "/" ] && break
+    done
+    echo $PWD
+    )
+}
+
+repogrep() {
+    rel_to_repo=$(realpath --relative-to=$PWD $(findrepo))/
+
+    repo grep $@ | grep -v "[.]min[.]" | grep -v '[.]\(js\|css\|js[.]map\)[:]' | tr "\n" "\0" | xargs -0 -l1 -I{} echo "$rel_to_repo{}"
+}
+
+repoback() {
+    rel_to_repo=$(realpath --relative-to=$PWD $(findrepo))/
+
+    echo ${rel_to_repo}backend/components/* ${rel_to_repo}/backend/fieldbox
+}
+
+backgrep() {
+    repogrep $@ $(repoback) | less -R
+}
