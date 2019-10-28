@@ -23,6 +23,10 @@ autocmd FileType erlang set expandtab tabstop=4 shiftwidth=4 textwidth=79
 
 set nu
 
+set grepprg=git\ grep\ -n
+set grepprg=repogrep\ -n
+let $BASH_ENV="~/.bashrc_shell_utils"
+
 " A bunch of remaps to make vim command mode more readline-like
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
