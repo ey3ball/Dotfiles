@@ -28,7 +28,7 @@ function prompt_command {
 		PS1="${PS1} \[$BRED\]:(" 
 	fi
 
-	PS1="$PS1\[$BWHITE\]$P_GIT_BRANCH"
+	PS1="$PS1\[$BWHITE\]$(__git_ps1)"
 
 	PS1="$PS1 \[$BBLUE\]$\[$NOCOL\] "
 }
