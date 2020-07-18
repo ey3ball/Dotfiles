@@ -1,21 +1,3 @@
-[submodule "3rdparty/zenburn"]
-	path = 3rdparty/zenburn
-	url = git@github.com:ey3ball/Zenburn.git
-[submodule "3rdparty/awesome-copycats"]
-	path = 3rdparty/awesome-copycats
-	url = git@github.com:ey3ball/awesome-copycats.git
-[submodule "3rdparty/tamzen-font"]
-	path = 3rdparty/tamzen-font
-	url = https://github.com/sunaku/tamzen-font.git
-[submodule "3rdparty/suckless-st"]
-	path = 3rdparty/suckless-st
-	url = git@github.com:ey3ball/suckless-st.git
-[submodule "3rdparty/solarized"]
-	path = 3rdparty/solarized
-	url = https://github.com/altercation/solarized
-[submodule "3rdparty/vim-colors-solarized"]
-	path = 3rdparty/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
 [submodule "3rdparty/vim-ledger"]
 	path = 3rdparty/vim-ledger
 	url = https://github.com/ledger/vim-ledger
