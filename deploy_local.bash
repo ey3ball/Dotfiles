@@ -35,15 +35,8 @@ fi
 
 deploy_link bash/bash_shell_utils   ~/.bash_shell_utils
 
-deploy_link vim/vimrc ~/.vimrc
-deploy_link nvim/init.vim ~/.config/nvim/init.vim
-deploy_link 3rdparty/zenburn/colors/zenburn.vim ~/.vim/colors/zenburn.vim
-deploy_link 3rdparty/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
+deploy_link nvim/init.lua ~/.config/nvim/init.lua
+deploy_link nvim/remap.vim ~/.config/nvim/plugins/remap.vim
 deploy_link 3rdparty/awesome-copycats ~/.config/awesome
 deploy_link 3rdparty/tamzen-font ~/.fonts/tamzen-font
 deploy_link env/tmux.conf ~/.tmux.conf
-deploy_link 3rdparty/awesome-copycats/rc.lua.template ~/.config/awesome/rc.lua
-
-xset +fp ~/.fonts/tamzen-font/bdf
-xset fp rehash
-
