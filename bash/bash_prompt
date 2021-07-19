@@ -1,6 +1,8 @@
 #!/bin/bash
 # Fancy bash prompt
 
+source /usr/share/git-core/contrib/completion/git-prompt.sh
+
 ############################################################
 # PROMPT
 ############################################################
