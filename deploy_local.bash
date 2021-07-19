@@ -40,3 +40,6 @@ deploy_link nvim/remap.vim ~/.config/nvim/plugins/remap.vim
 deploy_link 3rdparty/awesome-copycats ~/.config/awesome
 deploy_link 3rdparty/tamzen-font ~/.fonts/tamzen-font
 deploy_link env/tmux.conf ~/.tmux.conf
+deploy_link sway/sway.config ~/.config/sway/config
+deploy_link sway/waybar.config ~/.config/waybar/config
+deploy_link sway/waybar.css ~/.config/waybar/style.css
