@@ -22,6 +22,10 @@ require 'paq-nvim' {
     'nvim-lua/plenary.nvim';
     'lewis6991/gitsigns.nvim';
     'tpope/vim-fugitive';
+
+    -- rust
+    'simrat39/rust-tools.nvim';
+    'mfussenegger/nvim-dap';
 }
 
 require 'compe'.setup({
@@ -36,7 +40,31 @@ require 'compe'.setup({
     };
 })
 
-require 'lspconfig'.rust_analyzer.setup {}
+require 'rust-tools'.setup({
+    --tools = {
+    --    autoSetHints = false,
+    --},
+    server = {
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true
+                },
+                procMacro = {
+                    enable = false
+                },
+                diagnostics = {
+                    disabled = {"macro-error", "unresolved-proc-macro"}
+                },
+            },
+        },
+    },
+})
+
 require 'lspconfig'.pyright.setup {}
 require 'lspconfig'.yamlls.setup {
     filetypes = {"yaml", "yml"};
