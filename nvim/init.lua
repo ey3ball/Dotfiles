@@ -3,7 +3,7 @@ local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
-require 'paq-nvim' {
+require 'paq' {
     'savq/paq-nvim';
     'neovim/nvim-lspconfig';
     'glepnir/lspsaga.nvim';
