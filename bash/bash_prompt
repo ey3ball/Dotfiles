@@ -1,39 +1,36 @@
 #!/bin/bash
-# Fancy bash prompt
 
-source /usr/share/git-core/contrib/completion/git-prompt.sh
+if [ -e "/usr/bin/starship" ]; then
+	eval "$(starship init bash)"
+else
+	source /usr/share/git/completion/git-prompt.sh
 
-############################################################
-# PROMPT
-############################################################
+	function prompt_command {
+		LASTERR="$?"
 
-function prompt_command {
-	LASTERR="$?"
+		# Time
+		PS1="\[$BCYAN\]\t"
 
-	# Time
-	PS1="\[$BCYAN\]\t"
+		# User, Blue if root
+		if [ "$(whoami)" == "root" ]; then
+			PS1="$PS1 \[$BBLUE\]\u"
+		else
+			PS1="$PS1 \[$BRED\]\u"
+		fi
 
-	# User, Blue if root
-	if [ "$(whoami)" == "root" ]; then
-		PS1="$PS1 \[$BBLUE\]\u"
-	else
-		PS1="$PS1 \[$BRED\]\u"
-	fi
+		# host + path
+		PS1="${PS1}\[$BYELLOW\]@\[$BWHITE\]\h \[$BGREEN\]\w"
 
-	# host + path
-	PS1="${PS1}\[$BYELLOW\]@\[$BWHITE\]\h \[$BGREEN\]\w"
+		# error code
+		if [ $LASTERR = 0 ]; then
+			PS1="${PS1} \[$BGREEN\]:)"
+		else
+			PS1="${PS1} \[$BRED\]:("
+		fi
 
-	# error code
-	if [ $LASTERR = 0 ]; then 
-		PS1="${PS1} \[$BGREEN\]:)"
-	else 
-		PS1="${PS1} \[$BRED\]:(" 
-	fi
+		PS1="$PS1\[$BWHITE\]$(__git_ps1)"
 
-	PS1="$PS1\[$BWHITE\]$(__git_ps1)"
-
-	PS1="$PS1 \[$BBLUE\]$\[$NOCOL\] "
-}
-
-export PROMPT_COMMAND="prompt_command"
-
+		PS1="$PS1 \[$BBLUE\]$\[$NOCOL\] "
+	}
+	export PROMPT_COMMAND="prompt_command"
+fi
