@@ -1,0 +1,5 @@
+import:
+  - ~/.config/alacritty/snazzy.yml
+
+font:
+  size: 9.0
