@@ -80,6 +80,7 @@ require 'rust-tools'.setup({
     --    autoSetHints = false,
     --},
     server = {
+        on_attach = on_attach,
         settings = {
             ["rust-analyzer"] = {
                 assist = {
@@ -100,9 +101,15 @@ require 'rust-tools'.setup({
     },
 })
 
-require 'lspconfig'.pyright.setup {}
+require 'lspconfig'.pyright.setup {
+    on_attach = on_attach,
+}
 require 'lspconfig'.yamlls.setup {
+    on_attach = on_attach,
     filetypes = {"yaml", "yml"};
+}
+require 'lspconfig'.tsserver.setup {
+    on_attach = on_attach,
 }
 require 'nvim-treesitter.configs'.setup{
     ensure_installed = { "lua" };
