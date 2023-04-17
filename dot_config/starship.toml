@@ -1,4 +1,4 @@
-format = """$username@$hostname $directory$fill$git_status
+format = """$username@$hostname $directory$fill$git_status$git_branch
 $character"""
 add_newline = false
 
