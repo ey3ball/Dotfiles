@@ -57,6 +57,7 @@
 /* Each module */
 #battery,
 #clock,
+#custom-clock,
 #cpu,
 #custom-keyboard-layout,
 #memory,
@@ -101,6 +102,11 @@
 #clock {
     font-weight: bold;
 }
+
+#custom-clock {
+    font-weight: bold;
+}
+
 
 #cpu {
   /* No styles */
