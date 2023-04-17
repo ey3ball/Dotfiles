@@ -70,17 +70,18 @@ require 'lspconfig'.yamlls.setup {
     filetypes = {"yaml", "yml"};
 }
 require 'nvim-treesitter.configs'.setup{
-    ensure_installed = "maintained";
+    ensure_installed = { "lua" };
     highlight = {enable = true}
 }
 
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
+local saga = require 'lspsaga'.setup({})
 
 vim.cmd[[ highlight GitSignsAdd    guifg=green ]]
 vim.cmd[[ highlight GitSignsChange guifg=orange ]]
 vim.cmd[[ highlight GitSignsDelete guifg=red ]]
 vim.cmd[[ highlight SignColumn guibg=none ]]
+vim.cmd[[ highlight Pmenu ctermbg=gray guibg=gray ]]
+vim.cmd[[ set pumblend=15 ]]
 
 require('gitsigns').setup()
 
