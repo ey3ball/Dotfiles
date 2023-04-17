@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -e "/usr/bin/starship" ]; then
+if [ ! -z "$(which starship)" ]; then
 	eval "$(starship init bash)"
 else
 	source /usr/share/git/completion/git-prompt.sh

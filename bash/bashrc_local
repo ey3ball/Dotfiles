@@ -6,7 +6,6 @@ export SHELL=/bin/bash
 [ -r ~/.bash_completion ]	&& . ~/.bash_completion
 [ -r ~/.bash_aliases ]		&& . ~/.bash_aliases
 [ -r ~/.bash_colors ]		&& . ~/.bash_colors
-[ -r ~/.bash_prompt ]		&& . ~/.bash_prompt
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -42,3 +41,4 @@ export EDITOR="nvim"
 ############################################################
 
 [ -r ~/.bashrc_local ]		&& . ~/.bashrc_local
+[ -r ~/.bash_prompt ]		&& . ~/.bash_prompt
