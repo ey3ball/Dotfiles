@@ -129,6 +129,8 @@ opt.tabstop = 4
 opt.textwidth = 79
 opt.smartindent = true
 opt.termguicolors = true
+opt.formatoptions = "c"
+--opt.formatoptions = "tc"
 
 g.mapleader = ','
 g.lightline = {
