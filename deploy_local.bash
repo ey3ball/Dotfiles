@@ -44,3 +44,4 @@ deploy_link dot_config/starship.toml ~/.config/starship.toml
 deploy_link sway/sway.config ~/.config/sway/config
 deploy_link sway/waybar.config ~/.config/waybar/config
 deploy_link sway/waybar.css ~/.config/waybar/style.css
+deploy_link foot/foot.ini ~/.config/foot/foot.ini
