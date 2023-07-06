@@ -7,14 +7,20 @@ require 'paq' {
     'savq/paq-nvim';
     'neovim/nvim-lspconfig';
     'glepnir/lspsaga.nvim';
-    'hrsh7th/nvim-compe';
     'nvim-treesitter/nvim-treesitter';
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+
 
     'ibhagwan/fzf-lua';
         'nvim-tree/nvim-web-devicons'; -- depedency
 
     -- telescope and dependencies
-    'nvim-lua/popup.nvim';
     'nvim-lua/plenary.nvim';
     'nvim-telescope/telescope.nvim';
 
@@ -30,18 +36,6 @@ require 'paq' {
     'simrat39/rust-tools.nvim';
     'mfussenegger/nvim-dap';
 }
-
-require 'compe'.setup({
-    enabled = true;
-    autocomplete = true;
-    documentation = true;
-    source = {
-        path = true;
-        buffer = true;
-        nvim_lsp = true;
-        nvim_lua = true;
-    };
-})
 
 vim.api.nvim_set_keymap('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
 
@@ -75,11 +69,67 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+    end,
+  },
+  window = { },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' }, -- For vsnip users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+---- Set configuration for specific filetype.
+--cmp.setup.filetype('gitcommit', {
+--  sources = cmp.config.sources({
+--    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+--  }, {
+--    { name = 'buffer' },
+--  })
+--})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require 'rust-tools'.setup({
     --tools = {
     --    autoSetHints = false,
     --},
     server = {
+        capabilities = capabilities,
         on_attach = on_attach,
         settings = {
             ["rust-analyzer"] = {
@@ -102,13 +152,16 @@ require 'rust-tools'.setup({
 })
 
 require 'lspconfig'.pyright.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
 }
 require 'lspconfig'.yamlls.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     filetypes = {"yaml", "yml"};
 }
 require 'lspconfig'.tsserver.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
 }
 require 'nvim-treesitter.configs'.setup{
