@@ -164,12 +164,28 @@ require 'lspconfig'.tsserver.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+require 'lspconfig'.gopls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
 require 'nvim-treesitter.configs'.setup{
     ensure_installed = { "lua" };
     highlight = {enable = true}
 }
 
-local saga = require 'lspsaga'.setup({})
+vim.api.nvim_create_autocmd(
+    "FileType",
+    {
+        pattern = { 'go' },
+        command = 'setlocal noexpandtab tabstop=8 shiftwidth=8'
+    }
+)
+
+local saga = require 'lspsaga'.setup({
+    lightbulb = {
+        virtual_text = false
+    }
+})
 
 vim.cmd[[ highlight GitSignsAdd    guifg=green ]]
 vim.cmd[[ highlight GitSignsChange guifg=orange ]]
@@ -190,6 +206,8 @@ opt.textwidth = 79
 opt.smartindent = true
 opt.termguicolors = true
 opt.formatoptions = "c"
+opt.signcolumn = "yes"
+--opt.statuscolumn = "  "
 --opt.formatoptions = "tc"
 
 g.mapleader = ','
