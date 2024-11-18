@@ -8,6 +8,7 @@ require 'paq' {
     'neovim/nvim-lspconfig';
     'glepnir/lspsaga.nvim';
     'nvim-treesitter/nvim-treesitter';
+    'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
@@ -151,6 +152,10 @@ require 'rust-tools'.setup({
     },
 })
 
+require'lspconfig'.terraformls.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
 require 'lspconfig'.pyright.setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -160,7 +165,11 @@ require 'lspconfig'.yamlls.setup {
     on_attach = on_attach,
     filetypes = {"yaml", "yml"};
 }
-require 'lspconfig'.tsserver.setup {
+require 'lspconfig'.ts_ls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+require 'lspconfig'.gopls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
