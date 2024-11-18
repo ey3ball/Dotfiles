@@ -40,6 +40,15 @@ require 'paq' {
     -- ledger
     'ledger/vim-ledger';
     'psf/black';
+
+    -- codecompanion
+    'nvim-lua/plenary.nvim';
+    'nvim-treesitter/nvim-treesitter';
+    'hrsh7th/nvim-cmp';
+    'nvim-telescope/telescope.nvim';
+    'stevearc/dressing.nvim';
+    'MeanderingProgrammer/render-markdown.nvim';
+    'olimorris/codecompanion.nvim';
 }
 
 vim.api.nvim_set_keymap('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
@@ -210,3 +219,33 @@ g.lightline = {
     active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'relativepath', 'modified' } } },
     component_function = { gitbranch = "FugitiveHead" },
 }
+
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "openai",
+    },
+  },
+  adapters = {
+    openai = function()
+      return require("codecompanion.adapters").extend("openai_compatible", {
+        env = {
+          url = "https://api.scaleway.ai",
+          api_key = "";
+          chat_url = "/v1/chat/completions",
+        },
+        env_replaced = {},
+        schema = {
+            model = {
+                default = "llama-3.1-8b-instruct"
+            }
+        }
+      })
+    end,
+  },
+  opts = {
+    log_level = "DEBUG", -- or "TRACE"
+  },
+})
+
+--autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
