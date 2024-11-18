@@ -220,6 +220,14 @@ g.lightline = {
     component_function = { gitbranch = "FugitiveHead" },
 }
 
+vim.api.nvim_create_autocmd(
+    "Filetype",
+    {
+        pattern = { 'go' },
+        command = 'setlocal noexpandtab tabstop=8 shiftwidth=8'
+    }
+)
+
 require("codecompanion").setup({
   strategies = {
     chat = {
