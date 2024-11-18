@@ -36,6 +36,10 @@ require 'paq' {
     -- rust
     'simrat39/rust-tools.nvim';
     'mfussenegger/nvim-dap';
+
+    -- ledger
+    'ledger/vim-ledger';
+    'psf/black';
 }
 
 vim.api.nvim_set_keymap('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
