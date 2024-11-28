@@ -42,7 +42,7 @@ require 'paq' {
     'hrsh7th/nvim-cmp';
     'nvim-telescope/telescope.nvim';
     'stevearc/dressing.nvim';
-    'MeanderingProgrammer/render-markdown.nvim';
+    --'MeanderingProgrammer/render-markdown.nvim';
     'olimorris/codecompanion.nvim';
 }
 
